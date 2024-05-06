@@ -13,8 +13,7 @@ class Employee:
     def get_vacation_details(self):
         return f"Остаток отпускных дней: {self.remaining_vacation_days}."
 
-
 # Пример использования класса:
 employee = Employee('Роберт', 'Крузо', 'м')
-employee.consume_vacation(7)
+employee.consume_vacation(7)  # Исправили вызов метода, указав аргумент 'days'
 print(employee.get_vacation_details())
