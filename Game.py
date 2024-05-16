@@ -47,13 +47,27 @@ def main():
         # После каждого хода надо делать проверку на победу и на ничью.
         if game.check_win(current_player):
             print(f'Победили {current_player}!')
+            save_result(f'Победили {current_player}')
             running = False
+
         elif game.is_board_full():
             print('Ничья!')
+            save_result('Ничья!')
             running = False
 
         current_player = 'O' if current_player == 'X' else 'X'
 
+
+file = open('result.txt',
+            'r')  # 'a' — добавление: добавляет данные в конец файла, при этом существующие данные не удаляет.
+
+
+def save_result(result):
+    with open('result.txt', 'a') as file:
+        file.write(result + '\n')
+
+
+file.close()
 
 if __name__ == '__main__':
     main()
